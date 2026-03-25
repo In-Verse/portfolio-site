@@ -96,7 +96,7 @@ p:last-child {
 	margin-bottom: 0;
 }
 p {
-	line-height: 1.5;
+	line-height: 1.75;
 }
 
 li {
@@ -191,6 +191,25 @@ code {
 	word-break: break-all;
 }
 
+/* Code blocks without specified language or plaintext */
+pre:not([class*="language-"]) {
+	background-color: #272822;
+	display: block;
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+
+/* Inline code */
+:not(pre) > code {
+	background-color: #272822;
+	padding: 0em .5em;
+	border-radius: 4px;
+	/* This tries to provide balance for the words between */
+	margin: 0em 0.4em;
+}
+
 /* Header */
 header {
 	display: flex;
@@ -200,6 +219,13 @@ header {
 	align-items: center;
 	padding: 1em;
 }
+
+/* TODO 
+Move the heading-anchor from the default right to the left side
+.ha-placeholder {
+}
+*/
+
 .home-link {
 	flex-grow: 1;
 	font-size: 1em; /* 16px /16 */
@@ -296,3 +322,26 @@ header {
 	margin-right: 1em;
 }
 
+/* Blockquotes */
+blockquote {
+  margin: 1.25em 0;
+  padding: 0.9em 1.1em;
+  border-left: 2px solid var(--color-gray-20);
+  background: var(--background-color);
+  color: var(--text-color);
+  font-family: "Courier New", Courier, monospace;
+  margin-left: 1.2rem;
+}
+
+blockquote p {
+	margin: 0;
+}
+
+blockquote {
+  transition: border-color 0.25s ease, transform 0.25s ease;
+}
+
+blockquote:hover {
+  border-color: #5c6190;
+  transform: translateX(2px);
+}
