@@ -1,7 +1,18 @@
+/* Using variable font Annotation Mono */
+@font-face {
+	font-family: "Annotation Mono";
+	src: 
+		url('/fonts/AnnotationMono-VF.woff2') format('woff2-variations'),
+		url('/fonts/AnnotationMono-VF.woff2') format('woff2'),
+		url('/fonts/AnnotationMono-VF.ttf') format('truetype-variations');
+    font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
 /* Defaults */
 :root {
-	--font-family: -apple-system, system-ui, sans-serif;
-	--font-family-monospace: Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+	--font-family: "Annotation Mono" , -apple-system, system-ui, sans-serif, monospace;
+	--font-family-monospace: "Annotation Mono", Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
 }
 
 /* Theme colors */

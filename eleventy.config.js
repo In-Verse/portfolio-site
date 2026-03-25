@@ -30,6 +30,9 @@ export default async function(eleventyConfig) {
 	// Run Eleventy when these files change:
 	// https://www.11ty.dev/docs/watch-serve/#add-your-own-watch-targets
 
+	// Copy the contents of the 'fonts' folder to the output folder
+	eleventyConfig.addPassthroughCopy({"./css/fonts/": "/fonts/"});
+
 	// Watch CSS files
 	eleventyConfig.addWatchTarget("css/**/*.css");
 	// Watch images for the image pipeline.
@@ -65,10 +68,6 @@ export default async function(eleventyConfig) {
 		outputPath: "/feed/feed.xml",
 		stylesheet: "pretty-atom-feed.xsl",
 		templateData: {
-			eleventyNavigation: {
-				key: "Feed",
-				order: 4
-			}
 		},
 		collection: {
 			name: "posts",
