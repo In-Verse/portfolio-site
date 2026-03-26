@@ -1,0 +1,40 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<div class="content-box">
+	<heading-anchors>
+
+		<div class="blog-header">
+			<h1>{{ title }}</h1>
+
+			<ul class="post-metadata">
+				<li>
+					<time datetime="{{ date | htmlDateString }}">{{ date | readableDate }}</time>
+				</li>
+				{% for tag in tags %}
+					{% if tag != "posts" %}
+						<li><a href="/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>{% if not loop.last %}, {% endif %}</li>
+					{% endif %}
+				{% endfor %}
+			</ul>
+		</div>
+
+		{{ content | safe }}
+
+		{% if collections.posts %}
+			{% set previousPost = collections.posts | getPreviousCollectionItem %}
+			{% set nextPost = collections.posts | getNextCollectionItem %}
+			{% if previousPost or nextPost %}
+				<ul class="links-nextprev">
+					{% if previousPost %}
+						<li>← Previous<br><a href="{{ previousPost.url }}">{{ previousPost.data.title }}</a></li>
+					{% endif %}
+					{% if nextPost %}
+						<li class="links-nextprev-next">Next →<br><a href="{{ nextPost.url }}">{{ nextPost.data.title }}</a></li>
+					{% endif %}
+				</ul>
+			{% endif %}
+		{% endif %}
+
+	</heading-anchors>
+</div>
+{% endblock %}

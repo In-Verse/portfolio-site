@@ -1,0 +1,568 @@
+/* Using variable font Annotation Mono */
+@font-face {
+	font-family: "Annotation Mono";
+	src:
+		url('/assets/fonts/AnnotationMono-VF.woff2') format('woff2-variations'),
+		url('/assets/fonts/AnnotationMono-VF.woff2') format('woff2'),
+		url('/assets/fonts/AnnotationMono-VF.ttf') format('truetype-variations');
+	font-weight: 100 900;
+	font-style: normal;
+	font-display: swap;
+}
+
+/* Defaults */
+:root {
+	--font-family: "Annotation Mono", -apple-system, system-ui, sans-serif, monospace;
+	--font-family-monospace: "Annotation Mono", Consolas, Menlo, Monaco, Andale Mono WT, Andale Mono, Lucida Console, Lucida Sans Typewriter, DejaVu Sans Mono, Bitstream Vera Sans Mono, Liberation Mono, Nimbus Mono L, Courier New, Courier, monospace;
+}
+
+/* Dracula color theme
+   https://draculatheme.com/contribute#color-palette
+*/
+:root {
+	--dracula-background:  #282a36;
+	--dracula-current:     #44475a;
+	--dracula-foreground:  #f8f8f2;
+	--dracula-comment:     #6272a4;
+	--dracula-cyan:        #8be9fd;
+	--dracula-green:       #50fa7b;
+	--dracula-orange:      #ffb86c;
+	--dracula-pink:        #ff79c6;
+	--dracula-purple:      #bd93f9;
+	--dracula-red:         #ff5555;
+	--dracula-yellow:      #f1fa8c;
+
+	--background-color:        var(--dracula-background);
+	--text-color:              var(--dracula-foreground);
+	--text-color-link:         var(--dracula-cyan);
+	--text-color-link-active:  var(--dracula-pink);
+	--text-color-link-visited: var(--dracula-purple);
+	--border-color:            var(--dracula-comment);
+	--border-color-subtle:     var(--dracula-current);
+
+	--syntax-tab-size: 2;
+}
+
+/* Global stylesheet */
+* {
+	box-sizing: border-box;
+}
+
+@view-transition {
+	navigation: auto;
+}
+
+html,
+body {
+	padding: 0;
+	margin: 0 auto;
+	font-family: var(--font-family);
+	color: var(--text-color);
+	background-color: var(--background-color);
+}
+html {
+	overflow-y: scroll;
+	scroll-behavior: smooth;
+}
+body {
+	max-width: 50em;
+}
+
+/* https://www.a11yproject.com/posts/how-to-hide-content/ */
+.visually-hidden:not(:focus):not(:active) {
+	clip: rect(0 0 0 0);
+	clip-path: inset(50%);
+	height: 1px;
+	overflow: hidden;
+	position: absolute;
+	white-space: nowrap;
+	width: 1px;
+}
+
+/* Fluid images */
+img {
+	max-width: 100%;
+}
+img[width][height] {
+	height: auto;
+}
+img[src$=".svg"] {
+	width: 100%;
+	height: auto;
+	max-width: none;
+}
+
+/* Terminal-style for the hello-world.js */
+/* https://stackoverflow.com/questions/1625681/dynamically-change-color-to-lighter-or-darker-by-percentage-css */
+.terminal {
+	background: var(--dracula-background);
+	font-family: monospace;
+	font-size: 1rem;
+	padding: 1rem;
+	border: 1px solid var(--border-color);
+	line-height: 1.5;
+	/* Box shadow is not coherent with the style but keeping it as an option */
+	/* box-shadow: inset 0 0 60px rgba(0,0,0,.35); */
+	filter: brightness(85%);
+	white-space: pre-wrap;
+	word-wrap: break-word;
+	margin-bottom: 1.5rem;
+}
+
+.terminal .prompt {
+	color: var(--dracula-cyan)
+}
+.terminal .command {
+	color: var(--dracula-foreground);
+	white-space: pre-wrap;
+	word-break: break-word;
+}
+
+/* Yay pseudoclasses */
+.terminal .command::after {
+	content: "\25ae";
+	margin-left: 0.2ch;
+	animation: blink 1s step-end infinite;
+}
+
+.terminal .output {
+	color: var(--dracula-foreground);
+}
+
+@keyframes blink {
+	50% { opacity: 0; }
+}
+
+video,
+iframe {
+	width: 100%;
+	height: auto;
+}
+iframe {
+	aspect-ratio: 16/9;
+}
+
+img {
+  max-width: 100%;
+}
+
+/* Centered images */
+img.centered, 
+p img, 
+figure img {
+  display: block;
+  margin: 0 auto;
+}
+
+p:last-child {
+	margin-bottom: 0;
+}
+p {
+	line-height: 1.75;
+}
+li {
+	line-height: 1.5;
+}
+
+a[href] {
+	color: var(--text-color-link);
+}
+a[href]:visited {
+	color: var(--text-color-link-visited);
+}
+a[href]:hover,
+a[href]:active {
+	color: var(--text-color-link-active);
+}
+
+main,
+footer {
+	padding: 1rem;
+}
+main :first-child {
+	margin-top: 0;
+}
+
+header {
+	border-bottom: 1px solid var(--border-color);
+	margin-bottom: 2em;
+}
+
+#skip-link {
+	text-decoration: none;
+	background: var(--background-color);
+	color: var(--text-color);
+	padding: 0.5rem 1rem;
+	border: 1px solid var(--border-color-subtle);
+	border-radius: 2px;
+}
+#skip-link.visually-hidden:focus {
+	position: absolute;
+	top: 1rem;
+	left: 1rem;
+	z-index: 999;
+}
+
+.links-nextprev {
+	display: flex;
+	justify-content: space-between;
+	gap: .5em 1em;
+	list-style: "";
+	border-top: 1px dashed var(--border-color);
+	padding: 1em 0;
+}
+.blog-header {
+	padding-bottom: 1.5em;
+	border-bottom: 1px dashed var(--border-color);
+}
+.links-nextprev > * {
+	flex-grow: 1;
+}
+.links-nextprev-next {
+	text-align: right;
+}
+
+/* Tables */
+table {
+	margin: 1em 0;
+	border-collapse: collapse;
+	max-width: 100%;
+	display: block;
+	overflow-x: auto;
+	white-space: nowrap;
+}
+table td,
+table th {
+	padding: 0.5em;
+}
+th, td {
+	border: 0.5px solid var(--border-color-subtle);
+	text-align: center;
+}
+
+/* Code */
+pre,
+code {
+	font-family: var(--font-family-monospace);
+}
+pre:not([class*="language-"]) {
+	margin: .5em 0;
+	line-height: 1.375;
+	-moz-tab-size: var(--syntax-tab-size);
+	-o-tab-size: var(--syntax-tab-size);
+	tab-size: var(--syntax-tab-size);
+	-webkit-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+	direction: ltr;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	overflow-x: auto;
+	background-color: var(--dracula-current);
+	display: block;
+	padding: 1em;
+	border-radius: 0.3em;
+}
+code {
+	word-break: break-all;
+}
+:not(pre) > code {
+	background-color: var(--dracula-current);
+	color: var(--dracula-orange);
+	padding: 0em .5em;
+	border-radius: 4px;
+	margin: 0em 0.4em;
+}
+
+/* Header */
+header {
+	display: flex;
+	gap: 1em;
+	flex-wrap: wrap;
+	justify-content: space-between;
+	align-items: center;
+	padding: 1em;
+}
+
+.home-link {
+	flex-grow: 1;
+	font-size: 2rem;
+	font-weight: 700;
+	color: var(--dracula-purple);
+}
+.home-link:link:not(:hover) {
+	text-decoration: none;
+}
+.home-link:hover {
+	color: var(--dracula-pink);
+}
+
+/* Nav */
+.nav {
+	display: flex;
+	gap: .5em 1em;
+	padding: 0;
+	margin: 0;
+	list-style: none;
+}
+.nav-item {
+	display: inline-block;
+}
+.nav-item a[href]:not(:hover) {
+	text-decoration: none;
+}
+.nav a[href][aria-current="page"] {
+	text-decoration: underline;
+	color: var(--dracula-green);
+}
+
+/* Posts list */
+.postlist {
+	counter-reset: start-from var(--postlist-index);
+	list-style: none;
+	padding: 0;
+	padding-left: 1.5rem;
+}
+.postlist-item {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: baseline;
+	counter-increment: start-from -1;
+	margin-bottom: 1em;
+}
+.postlist-item:before {
+	display: inline-block;
+	pointer-events: none;
+	content: "" counter(start-from, decimal-leading-zero) ". ";
+	line-height: 100%;
+	text-align: right;
+	margin-left: -1.5rem;
+	color: var(--dracula-comment);
+}
+.postlist-date,
+.postlist-item:before {
+	font-size: 0.8125em;
+	color: var(--dracula-comment);
+}
+.postlist-date {
+	word-spacing: -0.5px;
+}
+.postlist-link {
+	font-size: 1.1875em;
+	font-weight: 700;
+	flex-basis: calc(100% - 1.5rem);
+	padding-left: .25em;
+	padding-right: .5em;
+	text-underline-position: from-font;
+	text-underline-offset: 0;
+	text-decoration-thickness: 1px;
+}
+.postlist-item-active .postlist-link {
+	font-weight: bold;
+}
+
+/* Tags */
+.post-tag {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	text-transform: capitalize;
+	font-style: italic;
+	color: var(--dracula-yellow);
+	padding: 0 10px;
+}
+.postlist-item > .post-tag {
+	align-self: center;
+}
+.post-metadata {
+	display: inline-flex;
+	flex-wrap: wrap;
+	gap: .5em;
+	list-style: none;
+	padding: 0;
+	margin: 0;
+}
+.post-metadata time {
+	margin-right: 1em;
+	color: var(--dracula-comment);
+}
+
+/* Blockquotes */
+blockquote {
+	margin: 1.25em 0;
+	padding: 0.9em 1.1em;
+	border-left: 2px solid var(--dracula-purple);
+	background: var(--dracula-current);
+	color: var(--text-color);
+	font-family: var(--font-family-monospace);
+	margin-left: 1.2rem;
+	transition: border-color 0.25s ease, transform 0.25s ease;
+}
+blockquote p {
+	margin: 0;
+}
+blockquote:hover {
+	border-color: var(--dracula-pink);
+	transform: translateX(2px);
+}
+
+/* TUI content box */
+.content-box {
+	border: 1px solid var(--border-color);
+	padding: 2.2em 1.5em;
+	margin: 2.5em auto;
+	max-width: 900px;
+	width: 100%;
+}
+
+/* Footer */
+footer {
+	border-top: 1px solid var(--border-color);
+	margin-left: auto;
+	margin-right: auto;
+	margin-top: 2em;
+	text-align: center;
+	color: var(--dracula-comment);
+}
+footer a[href] {
+	color: var(--dracula-cyan);
+}
+
+/* ─── Dracula Prism syntax theme ───────────────────────────── */
+code[class*="language-"],
+pre[class*="language-"] {
+	color: var(--dracula-foreground);
+	background: none;
+	font-family: var(--font-family-monospace);
+	font-size: 1em;
+	text-align: left;
+	white-space: pre;
+	word-spacing: normal;
+	word-break: normal;
+	word-wrap: normal;
+	line-height: 1.5;
+	-moz-tab-size: 4;
+	-o-tab-size: 4;
+	tab-size: 4;
+	-webkit-hyphens: none;
+	-moz-hyphens: none;
+	-ms-hyphens: none;
+	hyphens: none;
+}
+pre[class*="language-"] {
+	padding: 1em;
+	margin: .5em 0;
+	overflow: auto;
+	border-radius: 0.3em;
+}
+:not(pre) > code[class*="language-"],
+pre[class*="language-"] {
+	background: var(--dracula-current);
+}
+:not(pre) > code[class*="language-"] {
+	padding: .1em;
+	border-radius: .3em;
+	white-space: normal;
+}
+
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+	color: var(--dracula-comment);
+}
+.token.punctuation {
+	color: var(--dracula-foreground);
+}
+.token.namespace {
+	opacity: .7;
+}
+.token.property,
+.token.tag,
+.token.constant,
+.token.symbol {
+	color: var(--dracula-pink);
+}
+.token.boolean,
+.token.number {
+	color: var(--dracula-purple);
+}
+.token.selector,
+.token.attr-name,
+.token.string,
+.token.char,
+.token.builtin {
+	color: var(--dracula-yellow);
+}
+.token.operator,
+.token.entity,
+.token.url,
+.language-css .token.string,
+.style .token.string,
+.token.variable {
+	color: var(--dracula-foreground);
+}
+.token.atrule,
+.token.attr-value,
+.token.function,
+.token.class-name {
+	color: var(--dracula-green);
+}
+.token.keyword {
+	color: var(--dracula-pink);
+}
+.token.regex,
+.token.important {
+	color: var(--dracula-orange);
+}
+.token.important,
+.token.bold {
+	font-weight: bold;
+}
+.token.italic {
+	font-style: italic;
+}
+.token.entity {
+	cursor: help;
+}
+
+/* ─── Diff syntax ──────────────────────────────────────────── */
+pre[class*="language-diff-"] {
+	--eleventy-code-padding: 1.25em;
+	padding-left: var(--eleventy-code-padding);
+	padding-right: var(--eleventy-code-padding);
+}
+.token.deleted {
+	background-color: hsla(0, 100%, 67%, 0.2);
+	color: var(--dracula-red);
+}
+.token.inserted {
+	background-color: hsla(135, 94%, 65%, 0.15);
+	color: var(--dracula-green);
+}
+.token.prefix.unchanged,
+.token.prefix.inserted,
+.token.prefix.deleted {
+	-webkit-user-select: none;
+	user-select: none;
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	padding-top: 2px;
+	padding-bottom: 2px;
+}
+.token.prefix.inserted,
+.token.prefix.deleted {
+	width: var(--eleventy-code-padding);
+	background-color: rgba(0, 0, 0, .2);
+}
+.token.inserted:not(.prefix),
+.token.deleted:not(.prefix) {
+	display: block;
+	margin-left: calc(-1 * var(--eleventy-code-padding));
+	margin-right: calc(-1 * var(--eleventy-code-padding));
+	text-decoration: none;
+	color: inherit;
+}

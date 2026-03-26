@@ -1,0 +1,25 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<div class="content-box">
+	<h1>{{ title }}</h1>
+
+	{% set postslist = collections.posts %}
+	{% set postslistCounter = collections.posts | length %}
+
+	<ol reversed class="postlist" style="--postlist-index: {{ postslistCounter }}">
+		{% for post in postslist | reverse %}
+			<li class="postlist-item{% if post.url == page.url %} postlist-item-active{% endif %}">
+				<a href="{{ post.url }}" class="postlist-link">{{ post.data.title }}</a>
+				<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
+					{{ post.date | readableDate }}
+				</time>
+				{% for tag in post.data.tags %}
+					{% if tag != "posts" %}
+						<a href="/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+					{% endif %}
+				{% endfor %}
+			</li>
+		{% endfor %}
+	</ol>
+</div>
+{% endblock %}
