@@ -43,6 +43,26 @@
 	--syntax-tab-size: 2;
 }
 
+/* Header row should always be the same color */
+.home-link {
+	color: var(--dracula-cyan) !important;
+}
+
+a.home-link:visited, .nav-item a:visited {
+	color: inherit;
+}
+
+/* A little more contrast between the headers and the content */
+h1 {
+	color: var(--dracula-foreground);
+}
+
+/* Provides more space and visual separation because I'm not changing the colors */
+h1, h2, h3, h4, h5, h6 {
+	padding: 1em;
+	border-bottom: 1px solid var(--border-color);
+}
+
 /* Global stylesheet */
 * {
 	box-sizing: border-box;
@@ -165,14 +185,16 @@ li {
 }
 
 a[href] {
-	color: var(--text-color-link);
+	color: var(--text-color-link-visited);
+	/* Remove default underline */
+	text-decoration: none;
 }
 a[href]:visited {
-	color: var(--text-color-link-visited);
+	color: var(--dracula-purple);
 }
 a[href]:hover,
 a[href]:active {
-	color: var(--text-color-link-active);
+	color: var(--text-color--active);
 }
 
 main,
@@ -186,6 +208,7 @@ main :first-child {
 header {
 	border-bottom: 1px solid var(--border-color);
 	margin-bottom: 2em;
+	text-decoration: none;
 }
 
 #skip-link {
@@ -313,9 +336,10 @@ header {
 .nav-item a[href]:not(:hover) {
 	text-decoration: none;
 }
-.nav a[href][aria-current="page"] {
-	text-decoration: underline;
-	color: var(--dracula-green);
+
+/* Active page should be underlined */
+.nav a[href][aria-current="page"], .nav a[href][data-state="active"] {
+	color: var(--dracula-pink);
 }
 
 /* Posts list */

@@ -1,38 +1,54 @@
 <!doctype html>
 <html lang="{{ metadata.language }}">
 	<head>
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<meta charset="utf-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>{{ title }}{% if title %} — {% endif %}{{ metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-		<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg">
-		<link rel="stylesheet" href="/css/style.css">
+		<meta
+			name="description"
+			content="{{ description or metadata.description }}"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/assets/favicon.svg" />
+		<link rel="stylesheet" href="/css/style.css" />
 	</head>
 	<body>
-		<a href="#main" id="skip-link" class="visually-hidden">Skip to main content</a>
+		<a href="#main" id="skip-link" class="visually-hidden"
+			>Skip to main content</a
+		>
 
 		<header>
 			<a href="/" class="home-link">{{ metadata.title }}</a>
 			<nav>
-				<h2 class="visually-hidden" id="top-level-navigation-menu">Top level navigation menu</h2>
+				<h2 class="visually-hidden" id="top-level-navigation-menu">
+					Top level navigation menu
+				</h2>
 				<ul class="nav">
-					<li class="nav-item"><a href="/">/home</a></li>
-					<li class="nav-item"><a href="/posts/">/posts</a></li>
-					<li class="nav-item"><a href="/about/">/about</a></li>
+					{% for item in navigation.items %}
+					<li>
+						<a
+							href="{{ item.url }}"
+							{{
+							helpers.getLinkActiveState(item.url,
+							page.url)
+							|
+							safe
+							}}
+							>{{ item.text }}</a
+						>
+					</li>
+					{% endfor %}
 				</ul>
 			</nav>
 		</header>
 
-		<main id="main">
-			{% block content %}{% endblock %}
-		</main>
+		<main id="main">{% block content %}{% endblock %}</main>
 
 		<div class="footer-box">
 			<footer>
 				<p>
-					[ <em>Built with <a href="https://www.11ty.dev/">Eleventy</a></em> ]
-					[ Updated 3/26/2026 ]
-					[ <a href="mailto:{{ metadata.author.email }}">✉️</a> ]
+					[ <em>Built with <a href="https://www.11ty.dev/">Eleventy</a></em> ] [
+					Updated 3/26/2026 ] [
+					<a href="mailto:{{ metadata.author.email }}">✉️</a> ]
 				</p>
 			</footer>
 		</div>

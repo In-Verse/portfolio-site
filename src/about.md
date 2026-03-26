@@ -14,7 +14,7 @@ I am a Linux systems administrator with a strong DevOps focus, experienced in ma
 
 I value curiosity, teamwork, and continuous learning. As someone who entered the field later than most, I prioritize accessibility and knowledge sharing. 
 
-### Contact Me
+## Contact Me
 
 You can connect with me on email at rosemary@computerpoetry.com .
 
