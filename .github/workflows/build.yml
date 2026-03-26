@@ -1,0 +1,48 @@
+# 2. Go to your repository’s Settings on GitHub and find the GitHub Pages subsection.
+#				Under the Build and Deployment on the GitHub Pages settings, find the Source
+#				option and select “GitHub Actions”
+#
+# 3. In your project’s package.json, make sure the `build-ghpages` script has
+#				the `--pathprefix=` parameter set to your repository name.
+#				e.g.  "build-ghpages": "npx @11ty/eleventy --pathprefix=/YOUR_REPO_NAME/",
+#
+#				Exception: When using a Custom domain (example.com) with GitHub Pages, deploying
+#				to `example.com/` instead of `*.github.io/YOUR_REPO_NAME/` make sure to
+#				remove the `--pathprefix` parameter entirely.
+#				e.g.  "build-ghpages": "npx @11ty/eleventy",
+#
+# 4. Commit this new `gh-pages.yml` file and push it upstream to GitHub
+
+name: Build Eleventy
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+      - name: Install dependencies & build
+        run: |
+          npm install
+          npx @11ty/eleventy
+      - uses: actions/upload-pages-artifact@v2
+
+  deploy:
+    runs-on: ubuntu-latest
+    needs: build
+    steps:
+      - id: deployment
+        uses: actions/deploy-pages@v2
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
