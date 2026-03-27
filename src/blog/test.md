@@ -3,8 +3,9 @@ title: This is the test markdown file
 description: This is a test of rendering; it won't get published.
 date: 2018-05-01
 tags:
-  - posts
   - markdown
+  - test
+  - draft
 draft: true
 ---
 

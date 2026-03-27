@@ -9,6 +9,8 @@
 	<ol reversed class="postlist" style="--postlist-index: {{ postslistCounter }}">
 		{% for post in postslist | reverse %}
 			<li class="postlist-item{% if post.url == page.url %} postlist-item-active{% endif %}">
+				<!-- Labeling draft posts in the posts listing -->
+				{% if post.data.draft %}(draft){% endif %}
 				<a href="{{ post.url }}" class="postlist-link">{{ post.data.title }}</a>
 				<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">
 					{{ post.date | readableDate }}
