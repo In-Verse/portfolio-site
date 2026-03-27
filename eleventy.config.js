@@ -29,6 +29,25 @@ export default function (eleventyConfig) {
 	eleventyConfig.addFilter("htmlDateString", (dateObj) => {
 		return new Date(dateObj).toISOString().split("T")[0];
 	});
+
+
+	// Group drafts together with a collection
+	eleventyConfig.addFilter("collectionOrder", (posts) => {
+    const drafts = [];
+    const published = [];
+
+    for (const post of posts) {
+      if (post?.data?.draft) {
+        drafts.push(post);
+        continue;
+      }
+
+      published.push(post);
+    }
+
+    return [...drafts, ...published];
+  });
+
 }
 
 export const config = {
