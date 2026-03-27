@@ -16,7 +16,7 @@ I value curiosity, teamwork, and continuous learning. As someone who entered the
 
 ## Contact Me
 
-You can connect with me on email at rosemary@computerpoetry.com .
+You can connect with me on email at rosemary@computerpoetry.com or on [GitHub](https://github.com/In-Verse/).
 
 ## Cybersecurity
 
@@ -33,7 +33,7 @@ CTFs completed in 2026 include:
 - [DiceCTF Quals](https://ctf.dicega.ng/)
 - [picoCTF](https://picoctf.org/)
 
-## Outside of work 
+## Outside of Work 
 
 I enjoy the creative side of computing (hence *computer poetry*). I'm a member of a shared Linux server [Tilde Town](https://tilde.town/).
 
