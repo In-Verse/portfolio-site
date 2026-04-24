@@ -1,5 +1,5 @@
 ---
-title: "Files Full Of Whitespace"
+title: "Files Full of Whitespace"
 date: 2020-06-22T01:53:47-05:00
 draft: false
 tags: bash, linux

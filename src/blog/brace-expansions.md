@@ -1,5 +1,5 @@
 ---
-title: "Brace expansions and how to use them"
+title: "Brace Expansions and How To Use Them"
 date: 2026-03-28T02:53:47-05:00
 draft: false
 tags: bash, linux
