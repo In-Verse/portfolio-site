@@ -139,10 +139,29 @@ img[src$=".svg"] {
 }
 
 /* Yay pseudoclasses */
+/* Blinking cursor is here for a bit (beginning) */
 .terminal .command::after {
 	content: "\25ae";
 	margin-left: 0.2ch;
-	animation: blink 1s step-end infinite;
+	/* Not sure if it should blink or be solid */
+	animation: blink 2s step-end infinite;
+}
+
+/* Blinking cursor should disappear when the command is finished typing */
+.terminal .command.done::after {
+	animation: none;
+	opacity: 0;
+}
+
+/* Blinking cursor's final resting place is here (end) */
+.terminal .new-prompt::after {
+	content: "\25ae";
+	margin-left: 0.2ch;
+	animation: blink 2s step-end infinite;
+}
+
+.terminal .new-prompt {
+	color: var(--dracula-foreground);
 }
 
 .terminal .output {
