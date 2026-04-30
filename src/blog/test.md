@@ -53,6 +53,26 @@ Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
 
 ![Placeholder frog detective](/assets/images/test.png "Frog detective")
 
+## Collapsible sections
+
+<details>
+  <summary>Click me because I am collapsible!</summary>
+  
+  ### Heading in
+  
+  1. Banana
+  2. Pudding
+     1. Tasty
+     2. Dessert
+
+  ### Heading out
+
+  ```
+  Nothing better than a splurge day.
+  ```
+
+</details>
+
 ## Code blocks
 
 ```bash

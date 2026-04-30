@@ -6,7 +6,7 @@ tags: chinese , poetry
 ---
 
 
-The Chinese genre of "flight of wild geese" poetry were poems sent with the author's hope that their distint lover would return back home to them, just like migrating birds. One of the most famous examples is from Su Hui in the 4th century.
+The Chinese genre of "flight of wild geese" poetry were poems sent with the author's hope that their distant lover would return back home to them, just like migrating birds. One of the most famous examples is from Su Hui in the 4th century.
 
 Su Hui was married to Dou Tao of Qinzhou, Governor of the Gansu Province, during the Jin Dynasty. Times were happy until her husband transferred posts. He then married a concubine as a second wife. In her grief, Su Hui composed her circular poem. It was hand-embroidered in silk, and sent to him (Wang).
 
@@ -22,7 +22,7 @@ The poem is governed by the rule that, “the second line of every couplet must 
 
 ![Star Gauge](/assets/images/star/stargauge_english.jpg "Chinese Star Gauge poem translated in English")
 
-The poem, Star Gauge, works much like an armillary sphere, a device modeling the circles of Heaven. In the sphere, concentric rings move around the Earth to demonstrate the position of celestial bodies. The system rotates and shifts, but eventually comes to focus. Like an armillary sphere, Star Gauge produces many smaller poems circling and co-existing about each each other. And at the poem’s center, there lies the character, hsin, meaning “heart” or “mind”. Hsin is the center of Su Hui’s grand poem of which all characters revolve upond.
+The poem, Star Gauge, works much like an armillary sphere, a device modeling the circles of Heaven. In the sphere, concentric rings move around the Earth to demonstrate the position of celestial bodies. The system rotates and shifts, but eventually comes to focus. Like an armillary sphere, Star Gauge produces many smaller poems circling and co-existing about each other. And at the poem’s center, there lies the character, hsin, meaning “heart” or “mind”. Hsin is the center of Su Hui’s grand poem of which all characters revolve upon.
 
 > “Su Hui’s intended audience for the poem, and her intended purpose as well, is quite singular and yet the poem [is] everything but—it’s infinite.” - Jen Bervin 
 

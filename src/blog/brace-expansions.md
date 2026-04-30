@@ -21,7 +21,7 @@ In the following paragraphs, I will explain the patterns, preamble/postscript, a
 
 ### Patterns
 
-Patterns are the power behind brace expanions that generate strings. We place the patterns between curly braces like `{...}`
+Patterns are the power behind brace expansions that generate strings. We place the patterns between curly braces like `{...}`
 
 There are two patterns that you use for brace expansion:
 1. Comma separated list of data
@@ -31,7 +31,7 @@ The first pattern you can use is a list of strings. If your pattern is `{banana,
 
 Notice that without the optional preamble and postscript, the result is just a space separated list of the strings.
 
-The second pattern you can use is a range with a start and a end. If your pattern is `{1..5}` it will output `1 2 3 4 5`. Ranges can be numeric (`1..3`), alphabetic (`a..c`), or a combination.
+The second pattern you can use is a range with a start and an end. If your pattern is `{1..5}` it will output `1 2 3 4 5`. Ranges can be numeric (`1..3`), alphabetic (`a..c`), or a combination.
 
 We can also specify a steps value for the range. For example, `{0..10..2}` will produce only the even numbers from 0 to 10: `0 2 4 6 8 10`.
 
@@ -49,7 +49,7 @@ Preambles and postscripts are always optional in brace expansion. If we wanted, 
 
 ### Nesting
 
-When you *combine* brace expansions, you use them as either a preamble or postscript for another brace expansions. Its a Cartesian product!
+When you *combine* brace expansions, you use them as either a preamble or postscript for another brace expansion. Its a Cartesian product!
 
 A good example comes from [The Bash Hackers Wiki](https://flokoe.github.io/bash-hackers-wiki/syntax/expansion/brace/). It first generates the uppercase letters then the lowercase letters.
 
@@ -92,7 +92,7 @@ Note: Brace expansions are a feature that was introduced in Bash version 3.0. Th
 
 You can rename files with brace expansions. See `mv file.{pdf,old}` which translates to `mv file.pdf file.old`.
 
-Below we rename a CSV file to a Excel file.
+Below we rename a CSV file to an Excel file.
 
 ```
 $ ls
@@ -145,11 +145,11 @@ Here are some examples:
 - Make the directory folder structure of a Eleventy project
   - `mkdir -p eleventy-sample/{dist,scripts,style,es,asset,site{_include,_layout,_data}}`
 
-Make sure to use the `-p` command with `mkdir` if you are making directories where the subdirectories (or path) before them doesn't exist yet. 
+Make sure to use the `-p` command with `mkdir` if you are making directories where the subdirectories (or path) before them don't exist yet. 
 
 ## 5. Loop over files
 
-What if you want to go over a bunch of log files form `log01.txt` to `log20.txt`? You may do something funky with output from `ls`, `grep`, or `seq`. However, it can be simpler with brace expansion. The following pattern is useful when your files follow a sequential pattern.
+What if you want to go over a bunch of log files from `log01.txt` to `log20.txt`? You may do something funky with output from `ls`, `grep`, or `seq`. However, it can be simpler with brace expansion. The following pattern is useful when your files follow a sequential pattern.
 
 ``` bash
 for file in log{01..20}.txt ; do
@@ -157,9 +157,9 @@ for file in log{01..20}.txt ; do
 done
 ```
 \
-You can use brace expansions to replace the command `seq`. `for i in {1..10}` is the same as `for i in $(seq 10)`. In general, I would recommend uisng `seq` in scripts and brace exprassion at the terminal prompt. This is because `seq` will provide exit codes (success/failure).     
+You can use brace expansions to replace the command `seq`. `for i in {1..10}` is the same as `for i in $(seq 10)`. In general, I would recommend using `seq` in scripts and brace expansion at the terminal prompt. This is because `seq` will provide exit codes (success/failure).     
 
-Note: Bash v4.0 instroduced the zero-padding of expanded numeric values.
+Note: Bash v4.0 introduced the zero-padding of expanded numeric values.
 
 ## 6. Bulk download files
 
@@ -172,7 +172,7 @@ wget http://blog.com/posts/{0..10}.html
 wget http://blog.com/{index.html,styles.css,script.js}
 ```
 
-## 7. Make a inventory of hosts
+## 7. Make an inventory of hosts
 
 You can generate a hosts file with a list of your managed servers and hosts with brace expansions. Lets say you are given a couple parameters where a server is defined like `<region>-<instance>-<role>`:
 

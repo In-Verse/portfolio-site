@@ -5,9 +5,7 @@ draft: false
 tags: python
 ---
 
-In this post, I will do data analytics into Animal Crossing to break down the personalities of the villagers.
-
-Animal Crossing: New Horizons (ACNH) is a life simulation game by Nintendo. You play as a human that moves to an island populated by anthropomorphic animal residents. You meet neighbors, fish, dig for fossils, interior decorate, visit the museum, and more. It's a heartfelt "slice of life" game where you can unwind.
+Animal Crossing: New Horizons (ACNH) is a life simulation game by Nintendo. You play as a human that moves to an island populated by anthropomorphic animal residents. You meet neighbors, fish, dig for fossils, interior decorate, visit the museum, and more. It's a heartfelt "slice of life" game where you can unwind from the real world.
 
 I used ACNH as a dataset because of my personal connection to the videogame series. I have played multiple Animal Crossing games through the years. My aunt got me into the game series when I was a kid. She would bring over her memory card so that we could visit each other's worlds. 
 

@@ -16,7 +16,7 @@ I value curiosity, teamwork, and continuous learning. As someone who entered the
 
 ![Frog Detective coding on a Lily58 keyboard](/assets/images/about/frog-detective-coding.jpg)
 
-I'm also aided by the world's 2nd best investigator, [Frog Detective](https://frogdetective.net/).
+I'm also aided by the world's 2nd best investigator, [Frog Detective](https://frogdetective.net/)! 
 
 ## Contact Me
 
@@ -24,9 +24,9 @@ You can connect with me on email at rosemary@computerpoetry.com or on [GitHub](h
 
 ## Cybersecurity
 
-Cybersecurity is a core extension of my work in systems administation. I focus on understanding real-world challenges. Security doesn't happen in a vacuum. Imperfect systems are the norm. Users make mistakes, budgets are limited, IT inherits technical debt, and miscommunication happens across groups. By understanding attacker methodologies, I better understand how to recognize and defend. 
+Cybersecurity is a core extension of my work in systems administration. I focus on understanding real-world challenges. Security doesn't happen in a vacuum. Imperfect systems are the norm. Users make mistakes, budgets are limited, IT inherits technical debt, and miscommunication happens across groups. By understanding attacker techniques, I better understand how to recognize and defend. Linux privilege escalation is one of my favorite things! Many of these attacks can be stopped with the principle of least privilege and server hardening.
 
-I currently serve as captain of Hack Manhattan’s CTF team, STON3F1SH. I also sometimes compete with NYC 2600's CyberSheeple team. Through [CTF](https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29) competitions, I’ve developed hands-on experience in areas such as digital forensics, web application security, and OSINT. I’m also enthusiastic e about mentoring and actively help onboard new participants through Hack Manhattan’s Red Team study group.
+I currently serve as captain of Hack Manhattan’s CTF team, STON3F1SH. I also compete with NYC 2600's CyberSheeple team. Through [CTF](https://en.wikipedia.org/wiki/Capture_the_flag_%28cybersecurity%29) competitions, I’ve developed hands-on experience in areas such as digital forensics, web application security, and OSINT. I’m also enthusiastic about guiding new people into CTFs through Hack Manhattan’s Red Team study group.
 
 CTFs completed in 2026 include:
 - [SANS Holiday Hack](https://www.sans.org/cyber-ranges/holiday-hack-challenge)
@@ -39,6 +39,8 @@ CTFs completed in 2026 include:
 - [SillyCTF](https://sillyctf.psuccso.org/)
 - [DawgCTF](https://metactf.com/join/dawgctf26)
 - [MetaCTF](https://metactf.com/)
+- [RFCTF](https://rfhackers.com/rfctf/)
+- [Cloud Village CTF](https://www.cloud-village.org/)
 
 ## Outside of Work 
 
