@@ -31,6 +31,19 @@ export default function (eleventyConfig) {
 	});
 
 
+	// Filtered sorted, unique CTF names from writeups collection
+	eleventyConfig.addFilter("uniqueCtfNames", (writeups) => {
+		const names = (writeups || [])
+			.filter((w) => w.data.ctf)
+			.map((w) => w.data.ctf);
+		return [...new Set(names)].sort();
+	});
+
+	// Filtered writeups by a specific CTF name
+	eleventyConfig.addFilter("filterByCtf", (writeups, ctfName) => {
+		return (writeups || []).filter((w) => w.data.ctf === ctfName);
+	});
+
 	// Group drafts together with a collection
 	eleventyConfig.addFilter("collectionOrder", (posts) => {
     const drafts = [];

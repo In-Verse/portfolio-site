@@ -1,0 +1,27 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<div class="content-box">
+	<heading-anchors>
+
+		<h1>{{ title }}</h1>
+		<p>All writeups for <strong>{{ ctfName }}</strong></p>
+
+        <!-- List out writeups by CTFs-->
+
+		<ol reversed class="postlist" style="--postlist-index: {{ ctfWriteups | length + 1 }}">
+			{%- for post in ctfWriteups | reverse %}
+				<li class="postlist-item">
+					<a href="{{ post.url }}" class="postlist-link">{{ post.data.title }}</a>
+					<time class="postlist-date" datetime="{{ post.date | htmlDateString }}">{{ post.date | readableDate }}</time>
+					{% for tag in post.data.tags %}
+						{% if tag != "writeups" %}
+							<a href="/tags/{{ tag | slugify }}/" class="post-tag">{{ tag }}</a>
+						{% endif %}
+					{% endfor %}
+				</li>
+			{%- endfor %}
+		</ol>
+
+	</heading-anchors>
+</div>
+{% endblock %}

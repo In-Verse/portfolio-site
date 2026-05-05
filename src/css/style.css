@@ -416,6 +416,27 @@ header {
 	color: var(--dracula-yellow);
 	padding: 0 10px;
 }
+.ctf-tag {
+	color: var(--dracula-green);
+	font-style: normal;
+}
+
+/* CTF index */
+.ctf-index-list {
+	list-style: none;
+	padding: 0;
+}
+.ctf-index-list li {
+	margin: 0.5em 0;
+}
+.ctf-index-link {
+	font-weight: bold;
+}
+.ctf-count {
+	color: var(--dracula-comment);
+	font-size: 0.9em;
+	margin-left: 0.4em;
+}
 .postlist-item > .post-tag {
 	align-self: center;
 }

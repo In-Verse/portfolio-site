@@ -1,0 +1,23 @@
+{% extends "layouts/base.html" %}
+{% block content %}
+<div class="content-box">
+	<h1>{{ title }}</h1>
+
+	<p>Select a competition to see all its writeups or <a href="/writeups/">view all writeups</a>.</p>
+
+	{% set ctfNames = collections.writeups | uniqueCtfNames %}
+	{% if ctfNames.length %}
+		<ul class="ctf-index-list">
+			{% for name in ctfNames %}
+				{% set ctfPosts = collections.writeups | filterByCtf(name) %}
+				<li>
+					<a href="/ctf/{{ name | slugify }}/" class="ctf-index-link">{{ name }}</a>
+					<span class="ctf-count">({{ ctfPosts | length }} writeup{% if ctfPosts | length != 1 %}s{% endif %})</span>
+				</li>
+			{% endfor %}
+		</ul>
+	{% else %}
+		<p>No CTF writeups yet.</p>
+	{% endif %}
+</div>
+{% endblock %}
