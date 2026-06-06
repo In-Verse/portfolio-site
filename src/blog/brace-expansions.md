@@ -7,9 +7,9 @@ tags: bash, linux
 
 ## How brace expansions work
 
-Have you needed to make strings on the terminal? Enter brace expressions.
+Have you needed to make lots of strings on the terminal? Enter brace expansions!
 
-Brace expressions let you generate arbitrary strings; they can be sequential, non-sequential, or a combination! At the core of the expansion is the **pattern**, which generates strings. Optionally, there can either be a preamble *before* the pattern and a postscript *after* the pattern. Think of both the preamble and the postscript as strings that surround the pattern that will be generated. The format can be expressed as `<preamble>{ <pattern> }<postscript>`.
+Brace expansions let you generate arbitrary strings; they can be sequential, non-sequential, or a combination! At the core of the expansion is the **pattern**, which generates strings. Optionally, there can either be a preamble *before* the pattern and a postscript *after* the pattern. Think of both the preamble and the postscript as strings that surround the pattern that will be generated. The format can be expressed as `<preamble>{ <pattern> }<postscript>`.
 
 <details>
   <summary>Click here to see the official description from the manpages</summary>
@@ -21,17 +21,17 @@ In the following paragraphs, I will explain the patterns, preamble/postscript, a
 
 ### Patterns
 
-Patterns are the power behind brace expansions that generate strings. We place the patterns between curly braces like `{...}`
+Patterns are the power behind brace expansions because... **patterns generate strings**! We place the patterns between curly braces like `{...}`
 
-There are two patterns that you use for brace expansion:
+There are two patterns used for brace expansion:
 1. Comma separated list of data
 2. Sequence of expression (range)
 
-The first pattern you can use is a list of strings. If your pattern is `{banana,apple,orange}` it will output `banana apple orange`.
+The first pattern is a list of strings. If your pattern is `{banana,apple,orange}` it will output `banana apple orange`.
 
-Notice that without the optional preamble and postscript, the result is just a space separated list of the strings.
+Notice that *without* the optional preamble and postscript, the result is just a space separated list of the strings.
 
-The second pattern you can use is a range with a start and an end. If your pattern is `{1..5}` it will output `1 2 3 4 5`. Ranges can be numeric (`1..3`), alphabetic (`a..c`), or a combination.
+The second pattern is a range with a start and an end. If your pattern is `{1..5}` it will output `1 2 3 4 5`. Ranges can be numeric (`1..3`), alphabetic (`a..c`), or a combination.
 
 We can also specify a steps value for the range. For example, `{0..10..2}` will produce only the even numbers from 0 to 10: `0 2 4 6 8 10`.
 
@@ -49,7 +49,7 @@ Preambles and postscripts are always optional in brace expansion. If we wanted, 
 
 ### Nesting
 
-When you *combine* brace expansions, you use them as either a preamble or postscript for another brace expansion. Its a Cartesian product!
+When you *combine* brace expansions, you use them as either a preamble or postscript for another brace expansion. It is a Cartesian product!
 
 A good example comes from [The Bash Hackers Wiki](https://flokoe.github.io/bash-hackers-wiki/syntax/expansion/brace/). It first generates the uppercase letters then the lowercase letters.
 
@@ -59,7 +59,7 @@ $ echo {{A..Z},{a..z}}
 ```
 {% endraw %}
 
-Here's another example of nesting. I only have one set of cats that I can pet - but many, many dogs to pet!
+Here is another example of nesting. I only have one set of cats that I can pet - but many, many dogs to pet!
 
 {% raw %}
 ``` 
@@ -72,7 +72,7 @@ pet-cat pet-kitten pet-1dog pet-1puppy pet-2dog pet-2puppy pet-3dog pet-3puppy p
 
 In short, brace expansions generate a series of strings. 
 
-If you are confused on what strings a brace expansion will make, I recommend `echo`'ing it out. 
+If you are confused on what specific strings a brace expansion will make, I recommend `echo`'ing it out. 
 
 ``` 
 $ echo {a,b,c}
@@ -184,7 +184,7 @@ Your brace expansion would be: `{north,south,west}-{01..20}-{app,db,cache}`
 
 Now you can create your hosts file with one line: `printf "%s\n" {north,south,west}-{01..20}-{app,db,cache,dev} > hosts.txt`. 
 
-For an extra challenge, you can build inventory lists off of available [naming schemes](https://namingschemes.com/Main_Page).
+For an extra challenge, try building inventory lists off of available [naming schemes](https://namingschemes.com/Main_Page).
 
 You can also use this same technique to generate usernames or email accounts.
 
